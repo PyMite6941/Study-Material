@@ -1,7 +1,10 @@
 # Creator: Matt Gresham (aka PyMite6941)
 #
 # Purpose: To disguise programming as studying for precalculus so I can enjoy my time before midterms
+#
+# Subject: Conceptual Physics
 
+import math
 import random
 
 desire_to_do_physics = int(input("How many practice problems do you want to solve?\n> "))
@@ -9,8 +12,7 @@ desire_to_do_physics = int(input("How many practice problems do you want to solv
 # Loop for repeating problems
 for i in range(desire_to_do_physics):
     # Choose challenge type
-    problem_types = ['single_energy','energy_conservation','momentum','total_mechanical_energy']
-    chosen_problem_type = random.choice(problem_types)
+    chosen_problem_type = random.choice(['single_energy','energy_conservation','momentum','calculating_total_work','total_mechanical_energy'])
 
     # Problems involving one energy type
     if chosen_problem_type == 'single_energy':
@@ -144,7 +146,58 @@ for i in range(desire_to_do_physics):
         else:
             print("Correct! not possible to solve" if solvable_input == 'n' else "Incorrect,... not possible to solve")
 
-    # Solve for total Mechanical energy
+    # Problems about Calculating Work
+    elif chosen_problem_type == 'calculating_total_work':
+        # Randomly choose variables to use
+        num_variables = random.randint(2,4)
+        selected_variables = random.sample(['angle','d','F','W'],num_variables)
+
+        solvable_input = input(f"Provided variables:\n{selected_variables}\nIs this problem solvable (y/n) ?\n> ")
+
+        # See if the problem is solvable
+        if num_variables > 3:
+            print(f"{'Correct!' if solvable_input == 'y' else 'Incorrect,...'} possible to solve")
+
+            if 'angle' in selected_variables and 'd' in selected_variables and 'F' in selected_variables:
+                angle = random.choice([90,0,-90])
+                d = round(random.uniform(3,25.1),2)
+                F = round(random.uniform(50,5000.1),2)
+                print(f"Solve for work with provided variables:\nAngle: {angle} degrees\nDisplacement: {d} m\nForce: {F} N\n")
+                work_input = float(input("Solve for work (J):\n> "))
+                work_answer = F*d*math.cos(angle)
+                print(f"{'Correct!' if abs(work_answer-work_input) < 0.1 else 'Incorrect,...'} {work_answer}")
+
+            elif 'angle' in selected_variables and 'd' in selected_variables and 'W' in selected_variables:
+                angle = random.choice([90,0,-90])
+                d = round(random.uniform(3,25.1),2)
+                W = round(random.uniform(100,1000.1),2)
+                print(f"Solve for force with provided variables:\nAngle: {angle} degrees\nDisplacement: {d} m\nWork: {W} J\n")
+                force_input = float(input("Solve for force (N):\n> "))
+                force_answer = W/(d*math.cos(angle))
+                print(f"{'Correct!' if abs(force_answer-force_input) < 0.1 else 'Incorrect,...'} {force_answer}")
+
+            elif 'angle' in selected_variables and 'F' in selected_variables and 'W' in selected_variables:
+                angle = random.choice([90,0,-90])
+                F = round(random.uniform(50,5000.1),2)
+                W = round(random.uniform(100,1000.1),2)
+                print(f"Solve for displacement with provided variables:\nAngle: {angle} degrees\nForce: {F} N\nWork: {W} J\n")
+                d_input = float(input("Solve for displacement (m):\n> "))
+                d_answer = W/(F*math.cos(angle))
+                print(f"{'Correct!' if abs(d_answer-d_input) < 0.1 else 'Incorrect'} {d_answer}")
+
+            elif 'd' in selected_variables and 'F' in selected_variables and 'W' in selected_variables:
+                d = round(random.uniform(3,25.1),2)
+                F = round(random.uniform(50,5000.1),2)
+                W = round(random.uniform(100,1000.1),2)
+                print(f"Solve for angle with provided variables:\nDisplacement: {d}\nForce: {F} N\nWork: {W} J\n")
+                angle_input = float(input("Solve for angle (in degrees):\n> "))
+                angle_answer = math.acos(W/(F*d))
+                print(f"{'Correct!' if abs(angle_answer-angle_input) < 0.1 else 'Incorrect,...'} {angle_answer}")
+
+        else:
+            print(f"{'Correct!' if solvable_input == 'n' else 'Incorrect,...'} not possible to solve")
+
+    # Porblems about total Mechanical energy
     else:
         # Create variables to use
         m = round(random.uniform(0,100.1),2)

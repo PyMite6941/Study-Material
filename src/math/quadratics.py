@@ -1,6 +1,8 @@
 # Creator: Matt Gresham (aka PyMite6941)
 #
 # Purpose: To disguise programming as studying for precalculus so I can enjoy my time before midterms
+#
+# Subject: Precalculus
 
 import math
 import matplotlib.pyplot as plt

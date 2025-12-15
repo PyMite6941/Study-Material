@@ -1,6 +1,8 @@
 # Creator: Matt Gresham (aka PyMite6941)
 #
 # Purpose: To disguise programming as studying for precalculus so I can enjoy my time before midterms
+#
+# Subject: Conceptual Physics
 
 import math
 import random
@@ -57,7 +59,7 @@ for i in range(desire_to_do_circular_motion_and_energy):
     # If centripetal acceleartion then solve
     elif chosen_problem_type == 'centripetal_acceleration':
         # Randomly choose variables to use
-        num_variables = random.randint(1,3)
+        num_variables = random.randint(1,2)
         chosen_variables = random.sample(['a','r','v_t'],num_variables)
 
         solvable_input = input(f"Solve with these variables: {chosen_variables}\nIs it possible to solve this problem (y/n) ?\n> ").lower().strip()
@@ -96,7 +98,7 @@ for i in range(desire_to_do_circular_motion_and_energy):
         else:
             print(f"{'Correct!' if solvable_input == 'n' else 'Incorrect,...'} the problem is not solvable")
 
-    # If none of the above
+    # If centripetal force then solve
     else:
         # Randomly choose variables to use
         num_variables = random.randint(1, 3)
