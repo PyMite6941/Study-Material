@@ -1,0 +1,1 @@
+pip install math matplotlib numpy pymunk sympy

@@ -4,7 +4,7 @@
 #
 # Subject: Precalculus
 
-from math import degrees, asin, acos, atan
+from math import degrees, asin
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import random

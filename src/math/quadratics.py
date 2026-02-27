@@ -14,9 +14,9 @@ desire_to_solve_quadratics = int(input("How many practice questions do you want 
 # Loop for repeating problems
 for i in range(desire_to_solve_quadratics):
     # Define variables randomly
-    a = random.randint(1,10)
-    b = random.randint(0,51)
-    c = random.randint(0,76)
+    a = random.randint(1,9)
+    b = random.randint(0,50)
+    c = random.randint(0,75)
 
     # Display the practice problem
     print(f"Your quadratric equation: {a}x^2+{b}x+{c}")

@@ -15,7 +15,7 @@ for i in range(desire_to_solve_forces_done):
     # Gravitational Force problems
     if chosen_problem_type == 'gravitational_force':
         # Randomly assign variables
-        num_variables = random.randint(1,3)
+        num_variables = random.randint(1,2)
         chosen_variables = random.sample(['Fg','g','m'])
 
         solvable_input = input(f"Chosen variables:\n{chosen_variables}\nIs this problem solvable (y/n) ?\n> ")
@@ -56,9 +56,9 @@ for i in range(desire_to_solve_forces_done):
             print(f"{'Correct!' if solvable_input == 'n' else 'Incorrect,...'} not possible to solve")
 
     # Normal Force problems
-    if chosen_problem_type == 'normal_force':
+    elif chosen_problem_type == 'normal_force':
         # Randomly assign variables
-        num_variables = random.randint(1,3)
+        num_variables = random.randint(1,2)
         chosen_variables = random.sample(['Fn','g','m'])
 
         solvable_input = input(f"Chosen variables:\n{chosen_variables}\nIs this problem solvable (y/n) ?\n> ")
@@ -92,7 +92,7 @@ for i in range(desire_to_solve_forces_done):
                 print(f"Solve for normal force with provided variables:\nAcceleration of Gravity: {g} m/s^2\nMass: {m} kg\n")
                 Fn_input = float(input("Solve for normal force (N):\n> "))
                 Fn_answer = m*g
-                print(f"{'Correct!' if abs(Fn_answer-Fn_input) < 0.1 else 'Incorrect,...'} {Fg_answer}")
+                print(f"{'Correct!' if abs(Fn_answer-Fn_input) < 0.1 else 'Incorrect,...'} {Fn_answer}")
 
 
         else:
@@ -101,7 +101,7 @@ for i in range(desire_to_solve_forces_done):
     # Spring Force problems
     elif chosen_problem_type == 'spring_force':
         # Randomly assign variables
-        num_variables = random.randint(1,3)
+        num_variables = random.randint(1,2)
         chosen_variables = random.sample(['Fs','k','x'],num_variables)
 
         solvable_input = input(f"Chosen variables:\n{chosen_variables}\nIs this problem solvable (y/n) ?\n> ")
@@ -120,7 +120,7 @@ for i in range(desire_to_solve_forces_done):
                 print(f"{'Correct!' if abs(x_answer-x_input) < 0.1 else 'Incorrect,...'} {x_answer}")
 
             # If 'Fs' and 'x' then solve
-            if 'Fs' in chosen_variables and 'x' in chosen_variables:
+            elif 'Fs' in chosen_variables and 'x' in chosen_variables:
                 Fs = round(random.uniform(0.2,1000.1),2)
                 x = round(random.uniform(0.1, 2.1),2)
                 print(f"Solve for spring constant with provided variables:\nSpring Force: {Fs} N\nCompression Distance: {x} m\n")
@@ -129,7 +129,7 @@ for i in range(desire_to_solve_forces_done):
                 print(f"{'Correct!' if abs(k_answer-k_input) < 0.1 else 'Incorrect,...'} {k_answer}")
 
             # If 'k' and 'x' then solve
-            if 'k' in chosen_variables and 'x' in chosen_variables:
+            elif 'k' in chosen_variables and 'x' in chosen_variables:
                 k = round(random.uniform(50,500),2)
                 x = round(random.uniform(0.1, 2.1),2)
                 print(f"Solve for spring force with provided variables:\nSpring Constant: {k} N/m\nCompression Distance: {x} m\n")
@@ -143,7 +143,7 @@ for i in range(desire_to_solve_forces_done):
     # Tension Force problems
     else:
         # Randomly assign variables
-        num_variables = random.randint(2, 4)
+        num_variables = random.randint(2, 3)
         chosen_variables = random.sample(['a','Fg','Ft','m'],num_variables)
 
         solvable_input = input(f"Chosen variables:\n{chosen_variables}\nIs this problem solvable (y/n) ?\n> ")
